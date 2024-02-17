@@ -8,7 +8,8 @@ import {
   BsTwitter,
 } from "react-icons/bs";
 import { Inter } from "next/font/google";
-const inter = Inter({ subsets: ["latin"] });
+import FeedCard from "@/components/Feeds";
+
 export default function Home() {
   interface TwitterSideBar {
     title: string;
@@ -36,14 +37,14 @@ export default function Home() {
   ];
   return (
     <>
-      <div className={inter.className}>
+      <div >
         <div className=" grid grid-cols-12 h-screen w-screen px-56">
           <div className=" col-span-3  pt-8">
             <div className=" text-4xl h-fit p-2 hover:bg-gray-600 rounded-full transition-all cursor-pointer w-fit">
               <BsTwitter />
             </div>
             <div className=" mt-4 text-xl font-semibold pr-4">
-              <ul className=" space-y-6">
+              <ul className=" space-y-3">
                 {sideBarMenu.map((item) => {
                   return (
                     <li
@@ -57,11 +58,13 @@ export default function Home() {
                 })}
               </ul>
               <div>
-              <button className=" bg-[#1d9bf0] p-4 rounded-full w-full mt-5">Tweet</button>
+              <button className=" bg-[#1d9bf0] p-4 rounded-full w-[80%] h-[60%] mt-5 hover:bg-sky-600 hover:text-slate-200">Tweet</button>
               </div>
             </div>
           </div>
-          <div className=" col-span-6 border-r-[1px] border-l-[1px] border-gray-400"></div>
+          <div className=" col-span-6 border-r-[1px] border-l-[1px] border-gray-600">
+            <FeedCard/>
+          </div>
           <div className=" col-span-3 "></div>
         </div>
       </div>
