@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { BiHash, BiHomeCircle, BiMoney, BiUser } from "react-icons/bi";
 import {
@@ -10,7 +11,7 @@ import {
 import { Inter } from "next/font/google";
 import FeedCard from "@/components/Feeds";
 import { SlOptions } from "react-icons/sl";
-
+import { GoogleLogin } from "@react-oauth/google";
 export default function Home() {
   interface TwitterSideBar {
     title: string;
@@ -41,7 +42,7 @@ export default function Home() {
   return (
     <>
       <div >
-        <div className=" grid grid-cols-12 h-screen w-screen px-56">
+        <div className=" grid grid-cols-12 h-screen w-screen px-56 ">
           <div className=" col-span-3  pt-1 ">
             <div className=" text-2xl h-fit p-2 hover:bg-gray-600 rounded-full transition-all cursor-pointer w-fit">
               <BsTwitter />
@@ -73,7 +74,12 @@ export default function Home() {
             <FeedCard/>
             <FeedCard/>
           </div>
-          <div className=" col-span-3 "></div>
+          <div className=" col-span-3 p-5 ">
+            <div className=" p-5  rounded-lg w-full">
+              <h1 className=" my-2 text-2xl">New to Twitter ?</h1>
+            <GoogleLogin onSuccess={cred=>{console.log(cred)}} />
+            </div>
+          </div>
         </div>
       </div>
     </>
